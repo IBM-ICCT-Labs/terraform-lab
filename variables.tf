@@ -39,7 +39,7 @@ variable "zone2_cidr" {
 }
 
 variable "zone3_cidr" {
-  default = "10.16.2.0/24"
+  default = "10.16.3.0/24"
   description = "CIDR block to be used for zone 3"
 }
 
