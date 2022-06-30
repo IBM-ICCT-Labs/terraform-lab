@@ -124,10 +124,16 @@ resource "ibm_is_security_group_rule" "sg1_tcp_rule_80" {
   }
 }
 
+resource "ibm_is_lb" "lb1" {
+  name    = "example-load-balancer"
+  subnets = [ibm_is_subnet.subnet1.id]
+}
+
 resource "ibm_is_lb_pool_member" "lb1-pool-member3" {
   count = 1
-  lb = "${ibm_is_lb.lb1.id}"
-  pool = "${ibm_is_lb_pool.lb1-pool.id}"
+  lb = ibm_is_lb.lb1.id
+  pool = ibm_is_lb_pool.lb1-pool.id
   port = "80"
-  target_address = "${ibm_is_instance.instance3.primary_network_interface.0.primary_ipv4_address}"
+  target_address = ibm_is_instance.instance3.primary_network_interface.0.primary_ipv4_address
 }
+
