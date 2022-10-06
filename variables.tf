@@ -1,6 +1,6 @@
 variable resource_group {
   description = "Name of resource group to provision resources"
-  default     = "270004UG0W-icct-vpc-schematics"
+  default     = "default"
 }
 
 variable "ibmcloud_region" {
@@ -9,7 +9,7 @@ variable "ibmcloud_region" {
 }
 
 variable "vpc_name" {
-  default = "icct-lab-vpc"
+  default = "default"
   description = "Name of your VPC"
 }
 
@@ -34,12 +34,12 @@ variable "zone2_cidr" {
 }
 
 variable "ssh_key_name" {
-  default = "YOU MUST CREATE A VPC KEY"
+  default = ""
   description = "Name of existing VPC SSH Key"
 }
 
 variable "image" {
-  default = "r018-b30c1f1a-b38d-42dc-85b3-f79c34b0d2c3"
+  default = "r006-14140f94-fcc4-11e9-96e7-a72723715315"
   description = "OS Image ID to be used for virtual instances"
 }
 
